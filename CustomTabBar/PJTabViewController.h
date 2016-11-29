@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Constants.h"
+#import "PJTabConfiguration.h"
+#import "PJTabBar.h"
+#import "PJTabButton.h"
 
 @interface  PJTabViewController: UIViewController
 @property (nonatomic) NSInteger currentIndex;
-
-- (instancetype)initWithControllers:(NSArray *)controllers andTabImages:(NSArray *)tabImages;
+- (instancetype)initWithControllers:(NSArray *)controllers andTabImages:(NSArray *)tabImages andConfiguration:(PJTabConfiguration *)configuration ;
 @end
 

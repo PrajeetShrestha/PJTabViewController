@@ -7,28 +7,29 @@
 //
 
 #import "PJTabViewController.h"
-#import "PJTabBar.h"
-#import "PJTabButton.h"
-
 @interface PJTabViewController ()<UIScrollViewDelegate, DBTabBarDelegate>
 @property (strong, nonatomic)  UIScrollView *controllerScrollView;
-@property (nonatomic) NSInteger screenWidth;
-@property (nonatomic) NSInteger screenHeight;
 @property (nonatomic,strong) NSArray *controllers;
 @property (nonatomic,strong)  PJTabBar *bar;
 @property (nonatomic) NSArray *controllersArray;
 @property (nonatomic) NSArray *tabImages;
+@property (nonatomic) PJTabConfiguration *configuration;
 @end
 
 @implementation PJTabViewController
 @synthesize bar;
 @synthesize currentIndex;
 
-- (instancetype)initWithControllers:(NSArray *)controllers andTabImages:(NSArray *)tabImages{
+- (instancetype)initWithControllers:(NSArray *)controllers
+                       andTabImages:(NSArray *)tabImages
+                   andConfiguration:(PJTabConfiguration *)configuration {
+    
     self = [super init];
+    
     if (self) {
         self.controllersArray = controllers;
         self.tabImages = tabImages;
+        self.configuration = configuration;
     }
     return self;
 }
@@ -38,36 +39,41 @@
 }
 
 - (void)initializations {
-    self.screenWidth = [UIScreen mainScreen].bounds.size.width;
-    self.screenHeight = [UIScreen mainScreen].bounds.size.height;
+    
     self.controllers = [self controllersArray];
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     //Shouldn't be called in View Did Load since frame wont' be set properly
-    
-    self.controllerScrollView = [UIScrollView new];
-    [self.view addSubview:self.controllerScrollView];
-    self.controllerScrollView.frame = CGRectMake(0, 0, _screenWidth, _screenHeight - kTabBarHeight);
     [self setupControllers];
+    [self setupTabBar];
+}
+
+- (void)setupTabBar {
     NSMutableArray *controllerTitles = [NSMutableArray new];
     for (UIViewController *c in self.controllersArray) {
         [controllerTitles addObject:c.title];
     }
+    CGFloat yPositionOfTabBar = self.configuration.screenHeight - self.configuration.tabBarHeight;
     
-    bar = [[PJTabBar alloc]initWithImages:_tabImages andControllerTitles:controllerTitles];
-    bar.frame = CGRectMake(0, _screenHeight - kTabBarHeight, _screenWidth, kTabBarHeight);
+    CGRect frame = CGRectMake(0, yPositionOfTabBar, self.configuration.screenWidth, self.configuration.tabBarHeight);
+    bar = [[PJTabBar alloc]initWithImages:_tabImages
+                      andControllerTitles:controllerTitles
+                            configuration:self.configuration
+                                 andFrame:frame];
     bar.delegate = self;
-    [bar configure];
-    
     [self.view addSubview:bar];
-    
 }
 
 - (void)setupControllers {
+    CGFloat controllerContainerHeight = self.configuration.screenHeight - self.configuration.tabBarHeight;
+    CGFloat contentWidth = self.configuration.screenWidth * self.controllers.count;
     //Controller Scroll View Configuration
-    self.controllerScrollView.contentSize = CGSizeMake(self.screenWidth * self.controllers.count, self.controllerScrollView.frame.size.height);
+    self.controllerScrollView = [UIScrollView new];
+    [self.view addSubview:self.controllerScrollView];
+    self.controllerScrollView.frame = CGRectMake(0, 0, self.configuration.screenWidth,controllerContainerHeight);
+    self.controllerScrollView.contentSize = CGSizeMake(contentWidth, self.controllerScrollView.frame.size.height);
     self.controllerScrollView.pagingEnabled = true;
     self.controllerScrollView.showsHorizontalScrollIndicator = false;
     self.controllerScrollView.delegate = self;
@@ -76,23 +82,22 @@
     
     for (UIViewController *controller in controllers) {
         NSInteger index = [controllers indexOfObject:controller];
+        CGFloat xOffSetForController = self.configuration.screenWidth * index;;
         [self addChildViewController:controller];
-        [controller.view setFrame:CGRectMake(_screenWidth *
-                                             index, 0.0f,_screenWidth , self.controllerScrollView.frame.size.height)];
+        [controller.view setFrame:CGRectMake(xOffSetForController, 0.0f,self.configuration.screenWidth , self.controllerScrollView.frame.size.height)];
         [self.controllerScrollView addSubview:controller.view];
         [controller didMoveToParentViewController:self];
     }
 }
 
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
-    self.currentIndex = scrollView.contentOffset.x / _screenWidth ;
+    self.currentIndex = scrollView.contentOffset.x / self.configuration.screenWidth ;
     [self.bar highLightButtonAtIndex:self.currentIndex];
 }
 
 #pragma mark - TabBarDelegate
 - (void)tappedAtIndex:(NSInteger)index {
-    CGPoint offset = CGPointMake(index * _screenWidth, 0);
+    CGPoint offset = CGPointMake(index * self.configuration.screenWidth, 0);
     
     [UIView animateWithDuration:0.3 animations:^ {
         [self.controllerScrollView setContentOffset:offset animated:true];

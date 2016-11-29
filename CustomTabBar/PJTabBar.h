@@ -8,19 +8,24 @@
 
 #import <UIKit/UIKit.h>
 #import "PJTabButton.h"
-#import "Constants.h"
+#import "PJTabConfiguration.h"
 
 @protocol DBTabBarDelegate <NSObject>
-
 - (void) tappedAtIndex:(NSInteger)index;
-
 @end
+
+
 @interface PJTabBar : UIView
 
 @property (nonatomic,strong) NSMutableArray<PJTabButton *> *buttonViews;
-@property (weak,nonatomic) id<DBTabBarDelegate> delegate;
+@property (weak, nonatomic) id<DBTabBarDelegate> delegate;
 @property (nonatomic, strong) UIScrollView *scrollView;
-- (instancetype)initWithImages:(NSArray *) images andControllerTitles:(NSArray *)titles;
+
+- (instancetype)initWithImages:(NSArray *) images
+           andControllerTitles:(NSArray *)titles
+                 configuration:(PJTabConfiguration *) configuration
+                      andFrame:(CGRect)frame;
+
 - (void)configure ;
 - (void)highLightButtonAtIndex:(NSInteger)index;
 @end

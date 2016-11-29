@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Constants.h"
 @interface PJTabButton : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *image;
 @property (weak, nonatomic) IBOutlet UILabel *title;

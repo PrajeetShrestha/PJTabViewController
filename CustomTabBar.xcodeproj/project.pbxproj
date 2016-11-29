@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B62234231DED3B1D0092EA84 /* PJTabConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B62234221DED3B1D0092EA84 /* PJTabConfiguration.m */; };
 		B63EAF211DEC37AD009F37A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EAF201DEC37AD009F37A6 /* ViewController.m */; };
 		B6A5D9EB1DE7F65000B2CBF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A5D9EA1DE7F65000B2CBF7 /* main.m */; };
 		B6A5D9EE1DE7F65000B2CBF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A5D9ED1DE7F65000B2CBF7 /* AppDelegate.m */; };
@@ -31,9 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B62234211DED3B1D0092EA84 /* PJTabConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJTabConfiguration.h; sourceTree = "<group>"; };
+		B62234221DED3B1D0092EA84 /* PJTabConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJTabConfiguration.m; sourceTree = "<group>"; };
 		B63EAF1F1DEC37AD009F37A6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B63EAF201DEC37AD009F37A6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B6468B0E1DEBFC03005C84F9 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		B6A5D9E61DE7F65000B2CBF7 /* CustomTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A5D9EA1DE7F65000B2CBF7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B6A5D9EC1DE7F65000B2CBF7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +74,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B622341E1DED3AF00092EA84 /* PJTabButton */ = {
+			isa = PBXGroup;
+			children = (
+				B6F2703A1DE8270B00DBA847 /* PJTabButton.h */,
+				B6F2703B1DE8270B00DBA847 /* PJTabButton.m */,
+				B6F2703D1DE8271C00DBA847 /* PJTabButton.xib */,
+			);
+			name = PJTabButton;
+			sourceTree = "<group>";
+		};
+		B622341F1DED3AF70092EA84 /* PJTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				B6F270351DE8266800DBA847 /* PJTabBar.h */,
+				B6F270361DE8266800DBA847 /* PJTabBar.m */,
+			);
+			name = PJTabBar;
+			sourceTree = "<group>";
+		};
+		B62234201DED3AFD0092EA84 /* PJTabController */ = {
+			isa = PBXGroup;
+			children = (
+				B6A5D9EF1DE7F65000B2CBF7 /* PJTabViewController.h */,
+				B6A5D9F01DE7F65000B2CBF7 /* PJTabViewController.m */,
+			);
+			name = PJTabController;
+			sourceTree = "<group>";
+		};
+		B62234241DED3B200092EA84 /* PJTabAppearance */ = {
+			isa = PBXGroup;
+			children = (
+				B62234211DED3B1D0092EA84 /* PJTabConfiguration.h */,
+				B62234221DED3B1D0092EA84 /* PJTabConfiguration.m */,
+			);
+			name = PJTabAppearance;
+			sourceTree = "<group>";
+		};
 		B6A5D9DD1DE7F65000B2CBF7 = {
 			isa = PBXGroup;
 			children = (
@@ -97,14 +136,10 @@
 				B6A5D9ED1DE7F65000B2CBF7 /* AppDelegate.m */,
 				B63EAF1F1DEC37AD009F37A6 /* ViewController.h */,
 				B63EAF201DEC37AD009F37A6 /* ViewController.m */,
-				B6468B0E1DEBFC03005C84F9 /* Constants.h */,
-				B6A5D9EF1DE7F65000B2CBF7 /* PJTabViewController.h */,
-				B6A5D9F01DE7F65000B2CBF7 /* PJTabViewController.m */,
-				B6F270351DE8266800DBA847 /* PJTabBar.h */,
-				B6F270361DE8266800DBA847 /* PJTabBar.m */,
-				B6F2703A1DE8270B00DBA847 /* PJTabButton.h */,
-				B6F2703B1DE8270B00DBA847 /* PJTabButton.m */,
-				B6F2703D1DE8271C00DBA847 /* PJTabButton.xib */,
+				B62234201DED3AFD0092EA84 /* PJTabController */,
+				B622341F1DED3AF70092EA84 /* PJTabBar */,
+				B622341E1DED3AF00092EA84 /* PJTabButton */,
+				B62234241DED3B200092EA84 /* PJTabAppearance */,
 				B6A5D9F21DE7F65000B2CBF7 /* Main.storyboard */,
 				B6A5D9F51DE7F65000B2CBF7 /* Assets.xcassets */,
 				B6A5D9F71DE7F65000B2CBF7 /* LaunchScreen.storyboard */,
@@ -240,6 +275,7 @@
 				B6F2703C1DE8270B00DBA847 /* PJTabButton.m in Sources */,
 				B6A5D9EE1DE7F65000B2CBF7 /* AppDelegate.m in Sources */,
 				B6A5D9EB1DE7F65000B2CBF7 /* main.m in Sources */,
+				B62234231DED3B1D0092EA84 /* PJTabConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

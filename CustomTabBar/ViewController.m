@@ -22,7 +22,9 @@
 - (IBAction)push:(id)sender {
     NSArray *images = @[@"1",@"2",@"3",@"4",@"5",@"6"];
 
-    PJTabViewController *tab = [[PJTabViewController alloc]initWithControllers:[self controllersArray] andTabImages:images];
+    PJTabViewController *tab = [[PJTabViewController alloc]initWithControllers:[self controllersArray]
+                                                                  andTabImages:images
+                                                              andConfiguration:[PJTabConfiguration new]];
     [self showViewController:tab sender:nil];
 }
 
