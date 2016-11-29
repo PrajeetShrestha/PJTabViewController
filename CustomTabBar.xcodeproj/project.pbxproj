@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B62234231DED3B1D0092EA84 /* PJTabConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = B62234221DED3B1D0092EA84 /* PJTabConfiguration.m */; };
+		B62234271DED51DB0092EA84 /* TabContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B62234261DED51DB0092EA84 /* TabContentViewController.m */; };
 		B63EAF211DEC37AD009F37A6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B63EAF201DEC37AD009F37A6 /* ViewController.m */; };
 		B6A5D9EB1DE7F65000B2CBF7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A5D9EA1DE7F65000B2CBF7 /* main.m */; };
 		B6A5D9EE1DE7F65000B2CBF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A5D9ED1DE7F65000B2CBF7 /* AppDelegate.m */; };
@@ -34,6 +35,8 @@
 /* Begin PBXFileReference section */
 		B62234211DED3B1D0092EA84 /* PJTabConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PJTabConfiguration.h; sourceTree = "<group>"; };
 		B62234221DED3B1D0092EA84 /* PJTabConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PJTabConfiguration.m; sourceTree = "<group>"; };
+		B62234251DED51DB0092EA84 /* TabContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabContentViewController.h; sourceTree = "<group>"; };
+		B62234261DED51DB0092EA84 /* TabContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabContentViewController.m; sourceTree = "<group>"; };
 		B63EAF1F1DEC37AD009F37A6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		B63EAF201DEC37AD009F37A6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		B6A5D9E61DE7F65000B2CBF7 /* CustomTabBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTabBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +139,8 @@
 				B6A5D9ED1DE7F65000B2CBF7 /* AppDelegate.m */,
 				B63EAF1F1DEC37AD009F37A6 /* ViewController.h */,
 				B63EAF201DEC37AD009F37A6 /* ViewController.m */,
+				B62234251DED51DB0092EA84 /* TabContentViewController.h */,
+				B62234261DED51DB0092EA84 /* TabContentViewController.m */,
 				B62234201DED3AFD0092EA84 /* PJTabController */,
 				B622341F1DED3AF70092EA84 /* PJTabBar */,
 				B622341E1DED3AF00092EA84 /* PJTabButton */,
@@ -275,6 +280,7 @@
 				B6F2703C1DE8270B00DBA847 /* PJTabButton.m in Sources */,
 				B6A5D9EE1DE7F65000B2CBF7 /* AppDelegate.m in Sources */,
 				B6A5D9EB1DE7F65000B2CBF7 /* main.m in Sources */,
+				B62234271DED51DB0092EA84 /* TabContentViewController.m in Sources */,
 				B62234231DED3B1D0092EA84 /* PJTabConfiguration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

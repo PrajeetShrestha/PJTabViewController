@@ -21,7 +21,7 @@
 }
 - (IBAction)push:(id)sender {
     NSArray *images = @[@"1",@"2",@"3",@"4",@"5",@"6"];
-
+    
     PJTabViewController *tab = [[PJTabViewController alloc]initWithControllers:[self controllersArray]
                                                                   andTabImages:images
                                                               andConfiguration:[PJTabConfiguration new]];
@@ -35,28 +35,28 @@
 
 - (NSArray *)controllersArray {
     
-    UIViewController *controller1 = [UIViewController new];
-    controller1.view.backgroundColor = [UIColor grayColor];
-    controller1.title = @"v1";
+    UIViewController *controller1 = [self.storyboard instantiateViewControllerWithIdentifier:@"VRAMBO"];
+    
+    controller1.title = @"Opportunities";
     
     UIViewController *controller2 = [self.storyboard instantiateViewControllerWithIdentifier:@"VRAMBO"];
-    controller2.title = @"v2";
+    controller2.title = @"Games";
     
-    UIViewController *controller3 = [UIViewController new];
-    controller3.view.backgroundColor = [UIColor purpleColor];
-    controller3.title = @"v3";
+    UIViewController *controller3 = [self.storyboard instantiateViewControllerWithIdentifier:@"VRAMBO"];
     
-    UIViewController *controller4 = [UIViewController new];
-    controller4.view.backgroundColor = [UIColor magentaColor];
-    controller4.title = @"v4";
+    controller3.title = @"Talent Spots";
     
-    UIViewController *controller5 = [UIViewController new];
-    controller5.view.backgroundColor = [UIColor darkGrayColor];
-    controller5.title = @"v5";
+    UIViewController *controller4 = [self.storyboard instantiateViewControllerWithIdentifier:@"VRAMBO"];
     
-    UIViewController *controller6 = [UIViewController new];
-    controller6.view.backgroundColor = [UIColor cyanColor];
-    controller6.title = @"v6";
+    controller4.title = @"Insight";
+    
+    UIViewController *controller5 = [self.storyboard instantiateViewControllerWithIdentifier:@"VRAMBO"];
+    
+    controller5.title = @"You";
+    
+    UIViewController *controller6 = [self.storyboard instantiateViewControllerWithIdentifier:@"VRAMBO"];
+    
+    controller6.title = @"Mobile";
     
     return  @[controller1,controller2,controller3,controller4,controller5,controller6];
 }

@@ -12,12 +12,16 @@
 @interface PJTabConfiguration : NSObject
 @property (nonatomic) NSInteger tabItemWidth;
 @property (nonatomic) NSInteger tabBarHeight;
+@property (nonatomic, strong) UIColor *tabBarBackgroundColor;
 @property (nonatomic, strong) UIColor *activeBackgroundColor;
 @property (nonatomic, strong) UIColor *inactiveBackgroundColor;
 @property (nonatomic, strong) UIColor *activeTextColor;
 @property (nonatomic, strong) UIColor *inactiveTextColor;
+@property (nonatomic, strong) UIColor *tabImageActiveTintColor;
+@property (nonatomic, strong) UIColor *tabImageInactiveTintColor;
 @property (nonatomic) NSInteger screenWidth;
 @property (nonatomic) NSInteger screenHeight;
+
 
 
 @end

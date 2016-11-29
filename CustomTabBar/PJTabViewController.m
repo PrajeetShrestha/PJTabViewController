@@ -50,22 +50,6 @@
     [self setupTabBar];
 }
 
-- (void)setupTabBar {
-    NSMutableArray *controllerTitles = [NSMutableArray new];
-    for (UIViewController *c in self.controllersArray) {
-        [controllerTitles addObject:c.title];
-    }
-    CGFloat yPositionOfTabBar = self.configuration.screenHeight - self.configuration.tabBarHeight;
-    
-    CGRect frame = CGRectMake(0, yPositionOfTabBar, self.configuration.screenWidth, self.configuration.tabBarHeight);
-    bar = [[PJTabBar alloc]initWithImages:_tabImages
-                      andControllerTitles:controllerTitles
-                            configuration:self.configuration
-                                 andFrame:frame];
-    bar.delegate = self;
-    [self.view addSubview:bar];
-}
-
 - (void)setupControllers {
     CGFloat controllerContainerHeight = self.configuration.screenHeight - self.configuration.tabBarHeight;
     CGFloat contentWidth = self.configuration.screenWidth * self.controllers.count;
@@ -89,6 +73,24 @@
         [controller didMoveToParentViewController:self];
     }
 }
+
+
+- (void)setupTabBar {
+    NSMutableArray *controllerTitles = [NSMutableArray new];
+    for (UIViewController *c in self.controllersArray) {
+        [controllerTitles addObject:c.title];
+    }
+    CGFloat yPositionOfTabBar = self.configuration.screenHeight - self.configuration.tabBarHeight;
+    
+    CGRect frame = CGRectMake(0, yPositionOfTabBar, self.configuration.screenWidth, self.configuration.tabBarHeight);
+    bar = [[PJTabBar alloc]initWithImages:_tabImages
+                      andControllerTitles:controllerTitles
+                            configuration:self.configuration
+                                 andFrame:frame];
+    bar.delegate = self;
+    [self.view addSubview:bar];
+}
+
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView {
     self.currentIndex = scrollView.contentOffset.x / self.configuration.screenWidth ;
